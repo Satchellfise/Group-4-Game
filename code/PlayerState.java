@@ -13,18 +13,27 @@ import java.util.ArrayList;
  */
 public class PlayerState {
     
+    private static PlayerState _instance;
     ArrayList<String>  _inventory = new ArrayList<>(); // list of items :)
     Location _location;
-    private int money = 0;
+    private int money;
     private boolean inTown;
     int HP = 100;
     
-    public PlayerState() {
+    private PlayerState() {
         money = 0;
         inTown = true;
         _inventory.add("Potion1");
         _inventory.add("Fists");
         _inventory.add("MacGuffin");
+    }
+    
+    public PlayerState getInstance() {
+        
+        if (_instance == null) {
+            _instance = new PlayerState();
+        }
+        return _instance;
     }
     
     public int getMoney() {
