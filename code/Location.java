@@ -6,6 +6,7 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -18,11 +19,16 @@ import java.util.ArrayList;
 
 public class Location {
    
-    ArrayList<String>  _neighbors = new ArrayList<>(); // list of neighbors :)
+    
+    ArrayList<String>  _neighbors = new ArrayList<>(); // list of neighboring locations 
     
     ArrayList<String> _npcs = new ArrayList<>(); // list of NPCs in a given town, will change when create NPC class
     
     ArrayList<String> _objects = new ArrayList<>();
+    
+    final String _name;
+    
+    Scanner sc = new Scanner (System.in);
     
     /*
     Storing all this data as Strings and then decoding them is a bad hack,
@@ -30,8 +36,7 @@ public class Location {
     I don't know how else to store the list of adjacent locations, though.
     */
     
-    final String _name;
-    
+   
     public Location(ArrayList<String> neighbors, ArrayList<String> npcs, ArrayList<String> objects, String name) {
         _neighbors = neighbors;
         _npcs = npcs;
@@ -39,7 +44,7 @@ public class Location {
         _name = name;
     }
     
-    public void printNeighbors() {
+    public void printNeighbor() {
         for (int i = 0; i <_neighbors.size(); i++ ) {
             System.out.println(_neighbors.get(i));
         }
@@ -60,14 +65,15 @@ public class Location {
     public boolean isNeighbor(String toCheck) {
         boolean toReturn = false;
         for (int i = 0; i <_neighbors.size(); i++ ) {
-            if (toCheck.equals(_neighbors.get(i))) {
-                toReturn = true;
-            }
+           if (toCheck.equals(_neighbors.get(i))) {
+               toReturn = true;
+           }
         }
         return toReturn;
+    } 
+    
+    public String getName() {
+        return _name;
     }
-    
-    
-    
     
 }
