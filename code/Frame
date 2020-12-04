@@ -1,0 +1,29 @@
+package pkgfinal.quest;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+/**
+ *
+ * @author drf11
+ */
+public class Frame {
+    private final JFrame game=new JFrame();
+    
+    public Frame(){
+        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        game.setTitle("Final-Quest");
+        game.setResizable(true);
+        Main_Screen main_screen=new Main_Screen(game);
+        JPanel panel=main_screen.getPanel();
+        game.getContentPane().add(panel);
+        game.pack();
+    }
+    
+    public void display() {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+            game.setVisible(true);
+            }
+        });
+    }
+}
