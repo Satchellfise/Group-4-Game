@@ -1,1 +1,10 @@
+public class FinalQuest {
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Frame e = new Frame();
+        e.display();
+    }
+}
