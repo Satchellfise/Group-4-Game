@@ -1,8 +1,57 @@
 //a list of events that happen in each accessible area in the town/some dungeon elements and the corresponding neighboring spaces to this
 
+____________________________________________________
 Inn room:
 //Where you start the game, a small one bed room
 
 NPCs - none
+     - Though when you first start the game there's a short dialogue with yourself wondering where you are.
 
-OBjects - 
+Objects -
+  Bed
+    Description - It's a scruffy looking bed. Old but comfy enough
+    
+    Interact - You can go to sleep in the bed. This restores your health on all visits to the room except for the first one
+             - If you sleep in the bed right after you start the game, you get a simple ending "5 more minutes"
+						 
+  Window
+    Description - It's an old window that doesn't let much light pass through it.
+						    - When is open you can see the town through it. People seem to be getting ready 
+   
+   Interact - You open the window. The breeze is cold but not bitterly so.
+            - After you open the window interacting with it will have you jump out the window taking 10 damage or something
+            
+Neighbors
+  Pub
+    You walk down the hall and down a narrow flight of stairs to the pub area
+______________________________________________________________________
+Pub
+//It's a largish room housing several tables and chairs. Since we probably won't be doing multiple times for this there will always be 
+//people here regardless of how early it is
+
+NPCs -
+  Innkeep
+    Description - a desheveled but attentive man. He's kind and helpful to the residents of the town and to you.
+    
+    Talk - When you first enter this area he will talk to you first without prompts. He explains that someone found you outside the caves looking like
+          you had crawled your way out of them and brought you in to rest up. He asks you what happened and you realize that the only thing that you 
+          can remember is your name. He feels sorry for you and gives you the room until you can figure out who you are as long as you can help out around
+          town. He also gives you a free beer in your inventory.
+         - After that you can talk to him for flavor and order more drinks for money. He's helpful and will tell you what he knows which isn't much about
+       the cave but he does know about the town and people if applicable.   
+  
+  Drunk Regular
+    Description - a woman who has had too much to drink. She's gruff and has a few knives barely conceled. She's being watched over by a friend
+    
+    Talk - She isn't too responsive but when prodded will pull out a knife somewhat unthreateningly. Her friend will take the knife away from her.
+   
+  Friend of Drunk Regular
+    Description - A younger, woman with a bit of a gut. She's a kind, if ineffective friend to the regular.
+    
+    Talk - She'll give you her name and apologize for her friend of whom she has no power over her tendency to drink herself into oblivion. Aparently her friend
+    does this about once a week and then she'll be fine. The barkeeper will confirm this. Maybe she laments that her friend's hangovers are intolerable
+    and she has a quest where if you bring her a potion that cures hangover or poison or something that she'll give you a good item. Maybe a few of her
+    friend's throwing knives to use in battle as single use high damage items.
+    
+  Old Man at Table
+    Description - A silent old man quietly drinking 
