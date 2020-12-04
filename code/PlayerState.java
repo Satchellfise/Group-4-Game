@@ -54,9 +54,16 @@ public class PlayerState {
     
     // public void useItem() - case by case, may be good to store this elsewhere
     
-    public void setLocation(Location destination) {
-        _location = destination;
+     public void setLocation(Location destination) {
+        String name = destination.getName();
+        boolean adjacent = _location.isNeighbor(name);
+        if (adjacent) {
+            _location = destination;
+        } else {
+            System.out.println("These two locations don't connect");
+        }
     }
+    
     
     public Location getLocation() {
         return _location;
