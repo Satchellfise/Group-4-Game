@@ -54,9 +54,10 @@ public class PlayerState {
     
     // public void useItem() - case by case, may be good to store this elsewhere
     
-     public void setLocation(Location destination) {
-        String name = destination.getName();
-        boolean adjacent = _location.isNeighbor(name);
+    public void setLocation(String destinationName) {
+        LocationMaster lom = LocationMaster.getInstance();
+        Location destination = lom.parseLocation(destinationName);
+        boolean adjacent = _location.isNeighbor(destinationName);
         if (adjacent) {
             _location = destination;
         } else {
