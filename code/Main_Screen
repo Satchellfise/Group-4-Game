@@ -1,0 +1,72 @@
+package pkgfinal.quest;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+/**
+ *
+ * @author drf11
+ */
+public class Main_Screen extends JPanel implements ActionListener{
+    //private final JFrame game=new JFrame();
+    private final JPanel main_screen=new JPanel();
+    private final JLabel game_name=new JLabel("FINAL-QUEST");
+    private final JButton start=new JButton("START");
+    private final JButton cont=new JButton("CONTINUE");
+    private final JButton options=new JButton("OPTIONS");
+    private final JButton quit=new JButton("QUIT");
+    private JFrame _frame;
+    
+    public Main_Screen(JFrame frame){
+        _frame=frame;
+        main_screen.setBackground(Color.WHITE);//Place holder in case we want to change it.
+        main_screen.setPreferredSize(new Dimension(600,600)); //Can change later
+        main_screen.setLayout(null);
+        
+        game_name.setHorizontalAlignment(SwingConstants.CENTER);
+        game_name.setBounds(10,10,580,300);
+        start.setBounds(10,310,580,50);
+        cont.setBounds(10,380,580,50);
+        options.setBounds(10,450,580,50);
+        quit.setBounds(10,520,580,50);
+        
+        start.addActionListener(this);
+        cont.addActionListener(this);
+        options.addActionListener(this);
+        quit.addActionListener(this);
+        main_screen.addComponentListener(new PanelListen());
+        
+        main_screen.add(game_name);
+        main_screen.add(start);
+        main_screen.add(cont);
+        main_screen.add(options);
+        main_screen.add(quit);
+    }
+    
+    public JPanel getPanel(){
+        return main_screen;
+    }
+    
+    public void actionPerformed(ActionEvent e){
+        if(e.getSource().equals(quit))
+            _frame.dispatchEvent(new WindowEvent(_frame, WindowEvent.WINDOW_CLOSING));
+    }
+    
+    private class PanelListen implements ComponentListener{
+        public void componentHidden(ComponentEvent e) {
+        }
+        public void componentMoved(ComponentEvent e) {   
+        }
+        public void componentResized(ComponentEvent e) {
+            int width=main_screen.getWidth();
+            int height=main_screen.getHeight();
+            int spacing=(int)(height/8.6)+10;
+            game_name.setBounds(10,10,width-20,height/2);
+            start.setBounds(10,height/2+10,width-20,height/12);
+            cont.setBounds(10,height/2+spacing,width-20,height/12);
+            options.setBounds(10,height/2+2*spacing,width-20,height/12);
+            quit.setBounds(10,height/2+3*spacing,width-20,height/12);
+        }
+        public void componentShown(ComponentEvent e) {
+            
+        }
+    }
