@@ -1,0 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package game;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author danielcohen
+ */
+public class LocationMaster {
+    
+    static LocationMaster _instance;
+    
+    ArrayList <Location> map;
+    
+    private LocationMaster() {
+        map = new ArrayList<>();
+        map.add(LocationConstructor.createTown1());
+        map.add(LocationConstructor.createDungeon1());
+        map.add(LocationConstructor.createTemple1());
+    }
+    
+    public static LocationMaster getInstance() {
+        if (_instance == null) {
+            _instance = new LocationMaster();
+        }
+        return _instance;
+    }
+    
+    public Location parseLocation(String _name) { 
+        
+       Location toReturn = LocationConstructor.createPlaceHolder(); 
+       for (int i = 0; i<map.size(); i++) {
+           if (_name.equals(map.get(i).getName())) { // checks if provided name is the same as the name of that index. I'm tired
+           toReturn = map.get(i);
+       }
+       }
+       return toReturn;
+    }
+    
+    
+    
+    
+}
