@@ -150,7 +150,13 @@ NPCs -
 	Inn Patron
 		Description - A greasy looking man
 		
-		Talk - He 
+		Talk - If his room is broken into he will immediately be hostile and call the guards, threatening an ending by becoming jailed
+			- If he is convinced to let you through some means he's still kind of stand-offish
+			- If pressed he'll reveal that he's been on the run from some bad debts back in another town - info you can sell to the thieves guild
+			if unlocked. By listening to him he'll give you a potion or something trivial
+			
+Objects -
+	Window - same as your room
 
 Neighbors -
 	Inn
