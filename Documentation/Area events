@@ -1,7 +1,7 @@
 //a list of events that happen in each accessible area in the town/some dungeon elements and the corresponding neighboring spaces to this
 
 ____________________________________________________
-Inn room:
+Your room:
 //Where you start the game, a small one bed room
 
 NPCs - none
@@ -16,16 +16,21 @@ Objects -
 						 
   Window
     Description - It's an old window that doesn't let much light pass through it.
-						    - When is open you can see the town through it. People seem to be getting ready 
+    		- When is open you can see the town through it. People seem to be getting ready 
    
    Interact - You open the window. The breeze is cold but not bitterly so.
             - After you open the window interacting with it will have you jump out the window taking 10 damage or something
+	    
+	Chest
+		Description - A wooden chest for guests to store valuables in
+	
+	Interact - You open to reveal a spare set of clothes
             
-Neighbors
+Neighbors -
   Pub
     You walk down the hall and down a narrow flight of stairs to the pub area
 ______________________________________________________________________
-Pub
+Inn
 //It's a largish room housing several tables and chairs. Since we probably won't be doing multiple times for this there will always be 
 //people here regardless of how early it is
 
@@ -37,7 +42,7 @@ NPCs -
           you had crawled your way out of them and brought you in to rest up. He asks you what happened and you realize that the only thing that you 
           can remember is your name. He feels sorry for you and gives you the room until you can figure out who you are as long as you can help out around
           town. He also gives you a free beer in your inventory.
-         - After that you can talk to him for flavor and order more drinks for money. He's helpful and will tell you what he knows which isn't much about
+         - After that you can talk to him for flavor and order more drinks or food for money. He's helpful and will tell you what he knows which isn't much about
        the cave but he does know about the town and people if applicable.   
   
   Drunk Regular
@@ -54,4 +59,211 @@ NPCs -
     friend's throwing knives to use in battle as single use high damage items.
     
   Old Man at Table
-    Description - A silent old man quietly drinking
+    Description - A silent old man quietly drinking. He looks uninterested and a bit stand-offish
+    
+    Talk - This is the NPC that knows the most about the dungeon. He traveled the cave a long time back and and though he never seemed to reach the end he
+    can give info. He won't give it out at first you have to do something for him. Maybe you have to enter the dungeon first before he tells you or get
+    him something. Maybe you have to get your stuff from halfway through the dungeon and then he'll tell you the full tale.
+    He'll tell you that the dungeon has been put under a curse from a demon long since killed by an ancient hero. If you have your stuff he'll tell you
+    that your sword reminds him of that hero's blade. The dungeon won't go away until the spirit of the demon is banished once more by a magic blade along
+    with some other macguffin.
+    
+Objects -
+	Tables
+		Description - A rough wooden table. There are 6 in total in the room, each can sit about 4 but only one is being used by an old man sipping his
+		drink.
+	
+		Interact - You can sit down at one of the tables which will prompt the innkeep "shop"
+			- if you interact with the old man's table you can try to steal his drink which he will hate
+			- Or you can just sit down next to him you maniac
+			
+	Bar
+		Description - An old bar that needs replacing. Two women sit by it with drinks in front of them.
+		
+		Interact - You can sit down at the bar next to the women to prompt the innkeep "shop". Sitting down next to them might make them more friendly
+		or something idk
+			- You can try to steal the women's drinks once you're sitting with them but there are three people watching, not ideal.
+			
+	Booze behind the counter
+		Description - Many bottles of wine and liquor line the counter behind the innkeep
+		
+		Interact - You can inquire about these or you can try to steal them. Not super easy to do
+		
+Shop -	Booze
+	Meat
+	Stew
+	Etc.
+	
+	Does not buy back items
+ 
+Neighbors -
+	Crossroads
+		The door out of the inn leads to the crossroads
+	Your room
+		One of the rooms of the inn, back left of the hall
+	Empty room 1
+		Another room of the inn, back right of the hall. Locked
+	Empty room 2
+		Another room of the inn, front right of the hall. Locked
+	Stranger's room
+		Another room of the inn, front left of the hall. Locked and someone is inside. A man will yell at you to go away from behind the door
+	Kitchens
+		A door on the other side of the bar, near the open stairwell
+_______________________________________________
+Empty room 1
+//An unoccupied room. It's locked
+	
+NPCs - None
+
+Objects -
+	Window - same as your room
+	
+	Bed - same as your bed
+	
+	Chest -
+		Description - a wooden chest to store guest's valuables in.
+		
+		Interact - opens the chest to reveal some gold inside
+
+Neighbors -
+	Inn
+________________________________________________
+Empty room 2
+//An unoccupied room. It's locked
+
+NPCs - None
+
+Objects -
+	Window - same as your room
+	
+	Bed - same as your bed
+	
+	Chest - Opens to reveal a letter that you can ue for the thieves' guild for a reward
+
+Neighbors -
+	Inn
+_______________________________________________
+Stranger's room
+//A room that houses some other patron who won't leave the building
+
+NPCs -
+	Inn Patron
+		Description - A greasy looking man
+		
+		Talk - He 
+
+Neighbors -
+	Inn
+______________________________________________
+Kitchens
+
+Neighbors -
+	Inn, cellar
+_______________________________________________
+Cellar
+
+Neighbors -
+	Kitchens
+_______________________________________________
+Crossroads (Outside Inn)
+
+Neighbors -
+	Inn
+	Road out of town
+	Dungeon entrance
+	Town center
+	Farmlands
+_____________________________________________
+Road out of town
+
+Neighbors -
+	Crossroads
+	Fields
+	Leave the town
+_______________________________________________
+Leave the town
+
+Neighbors - none
+______________________________________________
+Dungeon Entrance
+
+Neighbors - 
+	Dungeon
+	Crossroads
+____________________________________________
+Town Center
+
+Neighbors -
+	Crossroads
+	Farmlands
+	Item shop
+	Blacksmith
+	Town Backstreets
+	Thatched-roof house
+	Brick House
+____________________________________________
+Item Shop
+
+Neighbors -
+	Town Center
+	Backroom
+___________________________________________
+Backroom
+
+Neighbors -
+	Item Shop
+______________________________________________
+Blacksmith
+
+Neighbors -
+	Town Center
+_____________________________________________
+Town Backstreets
+
+Neighbors -
+	Town Center
+	Farmlands
+	Shady Pub
+	Brick House
+_____________________________________________
+Shady Pub
+
+Neighbors -
+	Backstreets
+	Meeting room
+_____________________________________________
+Meeting room
+
+Neighbors -
+	Shady Pub
+_______________________________________________
+Thatched-roof House
+
+Neighbors - 
+	Town Center
+_____________________________________________
+Brick House
+
+Neighbors -
+	Town Center
+	Backstreets
+______________________________________________
+Farmlands
+
+Neighbors -
+	Town Center
+	Backstreets
+	Crossroads
+	Farm House
+	Fields
+______________________________________________
+Farm House
+
+Neighbors -
+	Farmlands
+______________________________________________
+Fields
+
+Neighbors -
+	Farmlands
+	Road out of Town
