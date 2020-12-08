@@ -1,0 +1,48 @@
+package group.pkg4.game;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author satch
+ */
+public class Player implements Statable{
+    
+    protected static int hp = 100;
+    protected static int atk = 5;
+    protected static int def = 5;
+    protected static String name = "Player";
+    
+    public void changeHP(int diff) {
+        hp = hp + diff;
+    }
+    
+    public void changeAtk(int diff) {
+        atk = atk + diff;
+    }
+    
+    public void changeDef(int diff) {
+        def = def + diff;
+    }
+    
+    public void changeName(String _name) {
+        name = _name;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public int getHP() {
+        return hp;
+    }
+    
+    public int getAtk() {
+        return atk;
+    }
+    
+    public int getDef() {
+        return def;
+    }
+    
+}
