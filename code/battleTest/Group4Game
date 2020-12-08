@@ -1,0 +1,19 @@
+package group.pkg4.game;
+
+/**
+ *
+ * @author satch
+ */
+public class Group4Game {
+
+    /**
+     * @param args the command line arguments
+     */
+    
+    
+    public static void main(String[] args) {
+        System.out.println("While entering the next room, you are snuck up upon!");
+        Battle test = new Battle(1, 1, 1, 0);
+    }
+    
+}
