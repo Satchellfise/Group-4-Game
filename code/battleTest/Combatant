@@ -1,0 +1,53 @@
+package group.pkg4.game;
+
+/**
+ *
+ * @author satch
+ */
+public class Combatant implements Statable {
+    private int hp;
+    private int atk;
+    private int def;
+    private String name;
+    
+    public Combatant(String _name, int _hp, int _atk, int _def) {
+        hp = _hp;
+        atk = _atk;
+        def = _def;
+        name = _name;
+    }
+    
+    public void changeHP(int diff) {
+        hp = hp + diff;
+    }
+    
+    public void changeAtk(int diff) {
+        atk = atk + diff;
+    }
+    
+    public void changeDef(int diff) {
+        def = def + diff;
+    }
+    
+    public void changeName(String _name) {
+        name = _name;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public int getHP() {
+        return hp;
+    }
+    
+    public int getAtk() {
+        return atk;
+    }
+    
+    public int getDef() {
+        return def;
+    }
+    
+    
+}
