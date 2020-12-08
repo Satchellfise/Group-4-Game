@@ -1,0 +1,195 @@
+
+package group.pkg4.game;
+import java.util.Scanner;
+
+/**
+ *
+ * @author satch
+ */
+public class Battle {
+    private Combatant a = new Combatant("", 0, 0, 0);
+    private Combatant b = new Combatant("", 0, 0, 0);
+    private Combatant c = new Combatant("", 0, 0, 0);
+    private Combatant d = new Combatant("", 0, 0, 0);
+    
+    int damage;
+    boolean battleEnd = false;
+    int tempDef = Player.def;
+    
+    private static String[] enemies = {
+            //0 is no enemy
+            "",
+            //1 - 4, bat
+            "Bat", "20", "5", "1"
+        };
+    
+    public Battle(int enemy1, int enemy2, int enemy3, int enemy4) {
+        if(enemy1 > 0) {
+            Combatant _a = new Combatant(enemies[enemy1], Integer.parseInt
+        (enemies[enemy1 + 1]), Integer.parseInt(enemies[enemy1 + 2]), 
+                    Integer.parseInt(enemies[enemy1 + 3]));
+            a = _a;
+        }
+        
+        if(enemy2 > 0) {
+            Combatant _b = new Combatant(enemies[enemy2], Integer.parseInt
+        (enemies[enemy2 + 1]), Integer.parseInt(enemies[enemy2 + 2]), 
+                    Integer.parseInt(enemies[enemy2 + 3]));
+            b = _b;
+        }
+        
+        if(enemy3 > 0) {
+            Combatant _c = new Combatant(enemies[enemy3], Integer.parseInt
+        (enemies[enemy3 + 1]), Integer.parseInt(enemies[enemy3 + 2]), 
+                    Integer.parseInt(enemies[enemy3 + 3]));
+            c = _c;
+        }
+        
+        if(enemy4 > 0) {
+            Combatant _d = new Combatant(enemies[enemy4], Integer.parseInt
+        (enemies[enemy4 + 1]), Integer.parseInt(enemies[enemy4 + 2]), 
+                    Integer.parseInt(enemies[enemy4 + 3]));
+            d = _d;
+        }
+        fightCycle();
+    }
+    
+    public int damageCalc(int aAtk, int bDef) {
+        int damage = aAtk - bDef;
+        if (damage < 1) {
+            damage = 1;
+        }
+        
+        return damage;
+    }
+    
+    public void playerPhase() {
+        Player.def = tempDef;
+        System.out.println("What would you like to do?\n"
+                + "A: Attack\n"
+                + "B: Defend\n"
+                + "C: Use Item\n"
+                + "D: Flee");
+        Scanner input= new Scanner(System.in);
+        char choice = Character.toLowerCase(input.next().charAt(0));
+        switch (choice) {
+            case 'a':
+                System.out.println("Select your target:");
+                if (a.getHP() > 0) {;
+                    System.out.println("A: " + a.getName());
+                }
+                if (b.getHP() > 0) {;
+                    System.out.println("B: " + b.getName());
+                }
+                if (c.getHP() > 0) {;
+                    System.out.println("C: " + c.getName());
+                }
+                if (d.getHP() > 0) {;
+                    System.out.println("D: " + d.getName());
+                }
+                char target = Character.toLowerCase(input.next().charAt(0));
+                
+                switch(target) {
+                    case 'a':
+                        damage = damageCalc(Player.atk, a.getDef());
+                        a.changeHP(-damage);
+                        System.out.println("You dealt " + damage + " to the " + a.getName());
+                        if(a.getHP() < 1) {
+                            System.out.println("You killed the " + a.getName());
+                        }
+                        break;
+                    case 'b':
+                        damage = damageCalc(Player.atk, a.getDef());
+                        b.changeHP(-damage);
+                        System.out.println("You dealt " + damage + " damage to the " + b.getName());
+                        if(b.getHP() < 1) {
+                            System.out.println("You killed the " + b.getName());
+                        }
+                        break;
+                    case 'c':
+                        damage = damageCalc(Player.atk, a.getDef());
+                        c.changeHP(-damage);
+                        System.out.println("You dealt " + damage + " damage to the " + c.getName());
+                        if(c.getHP() < 1) {
+                            System.out.println("You killed the " + c.getName());
+                        }
+                        break;
+                    case 'd':
+                        damage = damageCalc(Player.atk, a.getDef());
+                        d.changeHP(-damage);
+                        System.out.println("You dealt " + damage + " damage to the " + d.getName());
+                        if(d.getHP() < 1) {
+                            System.out.println("You killed the " + d.getName());
+                        }
+                        break;
+                }
+                break;
+            case 'b':
+                tempDef = Player.def;
+                Player.def = Player.def * 3;
+                System.out.println("You defend against incoming attacks");
+                break;
+            case 'c':
+                System.out.println("You use a potion");
+                Player.hp = Player.hp + 20;
+                if(Player.hp > 100) {
+                    Player.hp = 100;
+                }
+                System.out.println("You healed for 20 health. Current health: " + Player.hp);
+                break;
+            case 'd':
+                System.out.println("You try to run away!");
+                battleEnd = true;
+                break;
+            default:
+                System.out.println("You do nothing");
+        }
+    }
+    
+    public void enemyPhase() {
+        if(a.getHP() > 0) {
+            damage = damageCalc(a.getAtk(), Player.def);
+            Player.hp = Player.hp - damage;
+            System.out.println("The " + a.getName() + " dealt " + damage + " damage to you.");
+        }
+        
+        if(b.getHP() > 0) {
+            damage = damageCalc(b.getAtk(), Player.def);
+            Player.hp = Player.hp - damage;
+            System.out.println("The " + b.getName() + " dealt " + damage + " damage to you.");
+        }
+        
+        if(c.getHP() > 0) {
+            damage = damageCalc(c.getAtk(), Player.def);
+            Player.hp = Player.hp - damage;
+            System.out.println("The " + c.getName() + " dealt " + damage + " damage to you.");
+        }
+        
+        if(d.getHP() > 0) {
+            damage = damageCalc(d.getAtk(), Player.def);
+            Player.hp = Player.hp - damage;
+            System.out.println("The " + d.getName() + " dealt " + damage + " damage to you.");
+        }
+    }
+    
+    public void fightCycle() {
+        
+        System.out.println("You encounter " + a.getName() + " " + b.getName() +
+                " " + c.getName() + " " + d.getName());
+        while(Player.hp > 0 && battleEnd == false || a.getHP() > 0 || b.getHP() > 0 || c.getHP() > 0
+                || d.getHP() > 0) {
+            playerPhase();
+            enemyPhase();
+        }
+        if(battleEnd == true) {
+            System.out.println("You escaped!");
+        }
+        if(Player.hp > 0) {
+            System.out.println("You win!");
+        }
+        if(Player.hp < 0) {
+            System.out.println("You died. Try again!");
+        }
+    }
+    
+}
