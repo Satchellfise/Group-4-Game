@@ -1,0 +1,28 @@
+package group.pkg4.game;
+
+/**
+ *
+ * @author satch
+ */
+public interface Statable {
+    int hp = 0;
+    int atk = 0;
+    int def = 0;
+    String name = "";
+    
+    public void changeHP(int diff);
+    
+    public void changeAtk(int diff);
+    
+    public void changeDef(int diff);
+    
+    public void changeName(String _name);
+    
+    public String getName();
+    
+    public int getHP();
+    
+    public int getAtk();
+    
+    public int getDef();
+}
