@@ -127,6 +127,7 @@ Objects -
 
 Neighbors -
 	Inn
+		Through door, down the stairs
 ________________________________________________
 Empty room 2
 //An unoccupied room. It's locked
@@ -142,6 +143,7 @@ Objects -
 
 Neighbors -
 	Inn
+		Through door, down the stairs
 _______________________________________________
 Stranger's room
 //A room that houses some other patron who won't leave the building
@@ -157,12 +159,29 @@ NPCs -
 			
 Objects -
 	Window - same as your room
+	
+	Bed - You aren't allowed to sleep in this bed as the man won't let you.
+	
+	Chest - You can't open the chest with him in the room but if you can get him out of the room maybe you can get like a shitton of gold
 
 Neighbors -
 	Inn
+		Through door, down the stairs
 ______________________________________________
 Kitchens
+//A small kitchen area with a single small man lazing about
 
+NPCS -
+	Chef
+		Description - A small meek looking man decidedly not working right now.
+		
+		Talk - He'll first say you're not allowed back here but he's bored enough that he's just kinda joking. A nice enough fella, he'll chat and
+		share what he knows well enough.
+		
+Objects -
+	Stove -
+		
+	
 Neighbors -
 	Inn, cellar
 _______________________________________________
