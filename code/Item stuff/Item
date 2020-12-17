@@ -5,7 +5,6 @@
  */
 package game;
 
-import java.util.ArrayList;
 /**
  *
  * @author danielcohen
@@ -24,12 +23,20 @@ public class Item {
        _defUp = defUp;
     }
     
-    public void useItem(Item item) {
-        Player player = Player.getPlayer();
-        player.changeHP(_hpUp);
-        player.changeAtk(_atkUp);
-        player.changeDef(_defUp);
-        
+    public String getItemName(){
+        return _name;
+    }
+    
+    public int getHPUp () {
+        return _hpUp;
+    }
+    
+    public int getAtkUp() {
+        return _atkUp;
+    }
+    
+    public int getDefUp() {
+        return _defUp;
     }
     
     public void printItemName() {
