@@ -1,0 +1,45 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package game;
+
+import java.util.ArrayList;
+/**
+ *
+ * @author danielcohen
+ */
+public class Item {
+    
+    String _name;
+    int _hpUp;
+    int _atkUp;
+    int _defUp;
+    
+    public Item(String name, int hpUp, int atkUp, int defUp) {
+       _name = name;
+       _hpUp = hpUp;
+       _atkUp = atkUp;
+       _defUp = defUp;
+    }
+    
+    public void useItem(Item item) {
+        Player player = Player.getPlayer();
+        player.changeHP(_hpUp);
+        player.changeAtk(_atkUp);
+        player.changeDef(_defUp);
+        
+    }
+    
+    public void printItemName() {
+        System.out.println(_name);
+    }
+    
+    
+    public void printItemStats(){ //wouldn't let me use toString()
+        System.out.println("Hp Up:"+ _hpUp + ", Attack up: " + _atkUp + "Defense up: " + _defUp);
+        
+    }
+    
+}
