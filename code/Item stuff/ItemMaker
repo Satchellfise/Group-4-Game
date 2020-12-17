@@ -1,0 +1,62 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package game;
+
+/**
+ *
+ * @author danielcohen
+ * Essentially the same as LocationConstructor. This class creates items based
+ * on arbitrary numbers and names. Put every item you wish to make here.
+ * For Quest items, just use a flag.
+ */
+public class ItemMaker {
+    
+    public static Item createPlaceHolder() {
+        String name = "null";
+        int hpUp = 0;
+        int atkUp = 0;
+        int defUp = 0;
+        
+        Item item = new Item(name, hpUp, atkUp, defUp);
+        return item;
+    }
+    
+    public static Item createPotion() { // Remember when there were Pokemon Spinoffs that were better than the main series?
+        String name = "Potion";
+        int hpUp = 20;
+        int atkUp = 0;
+        int defUp = 0;
+        
+        Item item = new Item(name, hpUp, atkUp, defUp);
+        return item;
+        
+    }
+    
+    
+    public static Item createPowerRing() { // I remember when Fire Emblem was a cheesy tactics game, now its a dating sim :( Tellius 3 when?
+        String name = "Power Ring";
+        int hpUp = 0;
+        int atkUp = 2;
+        int defUp = 0;
+        
+        Item item = new Item(name, hpUp, atkUp, defUp);
+        return item;
+    }
+    
+    public static Item createDracoShield() { //I can't believe Path of Radiance sells for 300 dollars and I gave mine to GameStop for 5
+        String name = "DracoShield";
+        int hpUp = 0;
+        int atkUp = 0;
+        int defUp = 2;
+        
+        Item item = new Item(name, hpUp, atkUp, defUp);
+        return item;
+        
+        
+    }
+    
+    
+}
