@@ -323,6 +323,16 @@ NPCs -
 			If the player is nice to him, he'll tell them that the demon was slain using a special sword and a magic stone. The sword has been lost,
 			but the stone remains in the town as a museam piece essentially.
 			
+	Pompous Noble
+		Description - A well-to-do man smoking a pipe. He stands by the item shop
+		
+		Talk - A rude dude to the core. Not interested in helping out
+		
+	Noble's Servant
+		Description - A very tired looking young man who is about one bad day away from quitting. Stands next to the noble
+		
+		Talk - He's tired and isn't very interested in talking but if you get him a drink, he'll pay you a lot of money
+			
 Objects -
 	Statue
 		Description - A small statue, barely larger than the average man with the pedastal. It depicts a person with a sword and shield standing heroically
@@ -334,12 +344,20 @@ Objects -
 
 Neighbors -
 	Crossroads
+		The only true road out of town.
 	Farmlands
+		Walking away from the center, away from the inn or dungeon puts you in the direction of the farmlands
 	Item shop
+		A shop on the town square on the side closer to the dungeon
 	Blacksmith
+		A shop on the stown square on the side closer to the road out
 	Town Backstreets
+		Less alleys and more just smaller roads off of the town center. Houses aren't too close together this is just the town that's partially
+		obscured by more prominant main square buildings
 	Thatched-roof house
+		One of the houses on the square that seems poorly constructed
 	Brick House
+		The largest house on the square
 ____________________________________________
 Item Shop
 
