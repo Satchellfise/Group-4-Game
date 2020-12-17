@@ -54,7 +54,7 @@ public class LocationManager {
     }
     
     
-    public void storeData(String name, int id) {
+    public static void storeData(String name, int id) {
         String stringID = Integer.toString(id);
         namesAndIds[id] = name;
         
@@ -98,6 +98,9 @@ public class LocationManager {
         boolean toReturn = false;
         int id1 = nameToID(s1);
         int id2 = nameToID(s2);
+        Location2 l1 = locList[id1];
+        Location2 l2 = locList[id2];
+        toReturn = areBordering(l1, l2);
         return toReturn;
     }
     
