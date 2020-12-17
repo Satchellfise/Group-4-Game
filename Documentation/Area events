@@ -226,32 +226,111 @@ Neighbors -
 		Up the ladder and through the hatch
 _______________________________________________
 Crossroads (Outside Inn)
+//A 3-way crossroads towards the town, a path towards the next village, and a less used path leading towards the dungeon and forest
+
+NPCs -
+	Travelling Merchant
+		Description - A cheeky woman with a variety of expensive things for sale. She is tall and scraggly
+		
+		Talk - She saw you leave for the cave yesterday and then get dragged back. She tells you you had some pretty sweet gear that she'd like to buy
+		from you.
+			- You can also open the shop for this place through this
+			
+Objects -
+	Branch
+		Description - A sturdy wooden branch
+		
+		Interact - You can pick it up and use it as a weapon. It's better than nothing but not very strong
+		
+Shop - 	Potions
+	Rarer weapons and armor
+	
+	Buys back items
 
 Neighbors -
 	Inn
+		Back through the door of the inn
 	Road out of town
+		Left when just exiting the inn, the road winds away from the town and dungeon.
 	Dungeon entrance
+		Right when just exiting the inn, the road leads to the entrace a of a walk away
 	Town center
+		Straight ahead when just exiting the inn, it's a short road into a small town center
 	Farmlands
+		Off the road into the fields encircling the town
 _____________________________________________
 Road out of town
+//A lonely road with low hills on one side and the farms to the other.
+
+NPCs - None
+
+Objects -
+	Axe
+		Description - An axe pokes it's head out from the underbrush. It's old but pretty sturdy
+	
+		Interact - You can pick up the axe and use it as a weapon. This belongs to the farmer in the farmhouse so you can also take it back to him
+		for a reward.
 
 Neighbors -
 	Crossroads
+		The road back through the town
 	Fields
+		Off the road towards the town and the farms surrouding it
 	Leave the town
+		Keep following the road to leave town. It's a long ways from anything else, just hills and fields from there.
 _______________________________________________
 Leave the town
+//This is an ending you can achieve. Going out of town from the road out of town lets you forget about the dungeon and just leave.
+
+NPCs - none
+
+Objects - none
 
 Neighbors - none
 ______________________________________________
 Dungeon Entrance
+//A rough path leading towards the woods has a stop at a cave entrance that is darker than is reasonable. There's no sign of life near this place which gives it an
+eerie vibe.
 
 Neighbors - 
 	Dungeon
+		In the cave mouth is the dungeon
 	Crossroads
+		Through the road back, away from the forest
+	Forest
+		Continuing down an increasingly less traveled road
 ____________________________________________
+Forest
+//Another ending, heavily warned against. The forest makes all that enter that don't know the woods lost.
+
+NPCs - none
+
+OBjects - none
+
+Neighbors - none
+______________________________________________________
 Town Center
+//A quiet but respectable town center. People mill about or rush by. Most shops are around this area. A small statue of a knight is the only thing of real note
+
+NPCs -
+	Town Bum
+		Description - A grubby old man sitting by the statue. He smells bad and appears unwashed
+		
+		Talk - You can talk with the guy who is actually pretty nice if you're nice to him. If you're mean he'll be mean back and won't give you
+		any info
+			- He will talk about the statue who was a great hero back in the day who was said to have slain a demon. It happened before his time.
+			He will gab on about stories that aren't entirely true, but will allude to the end of the game much like the old man at the tavern does.
+			If the player is nice to him, he'll tell them that the demon was slain using a special sword and a magic stone. The sword has been lost,
+			but the stone remains in the town as a museam piece essentially.
+			
+Objects -
+	Statue
+		Description - A small statue, barely larger than the average man with the pedastal. It depicts a person with a sword and shield standing heroically
+		
+		Interact - You basically just get the description for it. Maybe you can interact with it in some meaningful way like tearing the stone sword out
+		or something but other than that, nothing really to do here
+		
+	
 
 Neighbors -
 	Crossroads
