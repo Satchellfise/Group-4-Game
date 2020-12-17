@@ -9,31 +9,66 @@ import java.util.ArrayList;
 /**
  *
  * @author danielcohen
+ * Essentially the same as LocationMaster
  */
 public class Inventory {
     
+    private Inventory _instance;
     
-    static Inventory getInstance;
-    
-    public ArrayList<Item> bag;
-    
-    int potions;
-    int attUps;
-    int defUps;
+    int potions= 0;
+    int atkUps = 0;
+    int defUps = 0;
     
     private Inventory () {
+        // There's nothing!
     }
     
-    public ArrayList getBag() {
-        if (bag == null) {
-            bag = new ArrayList();
+    public Inventory getInstance() {
+        if (_instance == null) {
+            _instance = new Inventory();
         }
-        return bag;
+       return _instance;
     }
     
-    public void addItem(Item item) {
-        bag.add(item);
+    public void getItem(Item item) {
+        if (item.getItemName() == "Potion") {
+            potions++;
+        } else if (item.getItemName() == "Power Ring") {
+            atkUps++;
+        } else if (item.getItemName() == "DracoShield") {
+            defUps++;
+        }
     }
     
-     
+    public void destroyItem(Item item) {
+       if (item.getItemName() == "Potion") {
+            potions--;
+        } else if (item.getItemName() == "Power Ring") {
+            atkUps--;
+        } else if (item.getItemName() == "DracoShield") {
+            defUps--;
+        }
+    }
     
+     public void useItem(Item item) {
+        if (item.getItemName() == "Potion" && potions == 0) {
+            System.out.println("No potions left");
+        } else if (item.getItemName() == "Power Ring" && atkUps == 0) {
+            System.out.println("No Power Rings Left");
+        } else if (item.getItemName() == "DracoShield" && defUps == 0) {
+            System.out.println("No DracoShields left");
+        } else {
+             Player player = Player.getPlayer();
+            player.changeHP(item.getHPUp());
+            player.changeAtk(item.getAtkUp());
+            player.changeDef(item.getDefUp());
+        
+            destroyItem(item); // I validated input. Hooray!
+        }
+       
+        
+    }
+    
+    
+    
+}
