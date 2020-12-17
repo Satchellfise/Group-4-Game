@@ -1,0 +1,39 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package game;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author danielcohen
+ */
+public class Inventory {
+    
+    
+    static Inventory getInstance;
+    
+    public ArrayList<Item> bag;
+    
+    int potions;
+    int attUps;
+    int defUps;
+    
+    private Inventory () {
+    }
+    
+    public ArrayList getBag() {
+        if (bag == null) {
+            bag = new ArrayList();
+        }
+        return bag;
+    }
+    
+    public void addItem(Item item) {
+        bag.add(item);
+    }
+    
+     
+    
