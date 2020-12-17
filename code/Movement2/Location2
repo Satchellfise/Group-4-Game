@@ -11,21 +11,22 @@ package game;
  */
 public class Location2 {
     static int counter = 0;
-    public int id;
+    public int _id;
     String _name;
     
     public Location2 (String name) {
-        id = counter;
+        _id = counter;
         counter++;
         _name = name;
+        storeData();
     }
     
     public int getID() {
-        return id;
+        return _id;
     }
     
     public void storeData() {
-        
+        LocationManager.storeData(_name, _id);
     }
     
     
