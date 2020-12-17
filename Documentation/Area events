@@ -177,18 +177,53 @@ NPCS -
 		
 		Talk - He'll first say you're not allowed back here but he's bored enough that he's just kinda joking. A nice enough fella, he'll chat and
 		share what he knows well enough.
+		- If you listen to him and joke around with him he'll give you some food for free
 		
 Objects -
-	Stove -
+	Stove
+		Description - A simple wood-flame stove. There's nothing in there
 		
+		Interact - If you've gotten to know the chef or there's no one there, you can use the stove to cook something or heat up stuff.
+				-This can maybe be used to change uncooked food into better healing items or something. Maybe a quest or item requires you
+				to heat something up to get a better result or whatever
+			- If you've pissed off the chef, it'll cost you to use the oven.
+				
+	Cupboard
+		Description - Wooden cupboards with many jars filled with various spices and such
+		
+		Interact - You can try to steal some but the chef will get mad at you if you try and fail
 	
 Neighbors -
-	Inn, cellar
+	Inn
+		Out the main door
+	cellar
+		Down a hatch in the floor, it's locked and the Chef has the key. He might be willing to show you around idk
 _______________________________________________
 Cellar
+//A damp storage area storing booze and salted meats
+
+NPCs - None
+
+Objects -
+	Hanging Tools
+		Description - A hanging fixture with some old unused knives and pots
+		
+		Interact - You can take a meat cleaver that serves as a decent weapon
+		
+	Barrels of Wine
+		Description - Barrels with cork stoppers of aged wine
+		
+		Interact - You can fill up containers with wine here
+		
+	Crates
+		Description - Wooden Crates boarded up. a crowbar sits by it.
+		
+		Interact - You'll need a crowbar to open up the crates revealing grain and salted meat. You can take some meat here.
+			- You can also just take the crowbar.
 
 Neighbors -
 	Kitchens
+		Up the ladder and through the hatch
 _______________________________________________
 Crossroads (Outside Inn)
 
