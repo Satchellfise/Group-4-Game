@@ -340,7 +340,10 @@ Objects -
 		Interact - You basically just get the description for it. Maybe you can interact with it in some meaningful way like tearing the stone sword out
 		or something but other than that, nothing really to do here
 		
-	
+	Well
+		Description - A stone well, located off of the square a bit. There's a winch but no rope or bucket. Something glints at the bottom
+		
+		Interact - If you have a bucket and rope, you can lower it down to retrieve a fairly powerful ring or similar accessory item.
 
 Neighbors -
 	Crossroads
@@ -360,17 +363,89 @@ Neighbors -
 		The largest house on the square
 ____________________________________________
 Item Shop
+//A small shop that sells potions and the like as well as general items.
+
+NPCs -
+	Shopkeep
+		Description - A shrewd older woman in simple, drab clothes
+		
+		Talk - She is no-nonsense and doesn't like to talk. Mostly just to open the shop menu
+			- She might be convinced to talk if you have something to say.
+			- You have to go on a quest to get the stone hanging behind her.
+	
+	Customer
+		Description - A nervous man looking amongst the shelves
+		
+		Talk - He seems very indecisive, nervously asking what to get. He's wealthy and if you help him, he'll give you money and a potion.
+		
+Objects -
+	Glass Case
+		Description - A glass case full of potions
+		
+		Interact - As you go to touch it, you're warned by the shopkeep.
+			- You can break it but you're gonna get in trouble. Maybe the ending where you get arrested.
+			
+	Magic Stone
+		Description - A dull red stone hanging on the wall. A plaque reads, "This stone was used to defeat the devil of long ago" or something
+		
+		Interact - You can try to grab it but you'll definitely be stopped.
+			- The only way you can reasonably steal it is if you get something from the thieve's guild to get the people out of the room.
+			- You can also trick the woman into going into the backroom and get the customer to leave by helping him decide to steal it. If you do this
+			you won't be able to return
+
+Shop - 	Potions
+	rope
+	torches
+	food
+	crowbar
+	other misc helpful stuff, consumable items
+	
+	No buy-back
 
 Neighbors -
 	Town Center
+		Out through the front door
 	Backroom
+		Behind the old woman is a backroom. it's locked and she won't let you in.
 ___________________________________________
 Backroom
+//A simple room where she clearly lives. On one wall is storage for the shop and around the corner is her bed, a simple kitchen, and table
+
+NPCs - None
+
+Objects -
+	Crates
+		Description - wooden crates that contain supplies. One is open
+		
+		Interact - You'll need a crowbar to open them except the one that's open.
+			- The one that's open contains a bunch of simple supplies like rope and stuff
+			- The others contain potions and other useful stuff, you can get most of the stuff from the shop for free this way
+			
+	Stove
+		Description - An old wood stove
+		
+		Interact - You can cook stuff here
+		
+	Bed
+		Description - A relatively comfy bed
+		
+		Interact - You can't sleep here but you wish you could as it's much nicer than your room.
 
 Neighbors -
 	Item Shop
+		Back out through the only door.
 ______________________________________________
 Blacksmith
+//A large open room. Warm from the kiln in the back. The front houses a small storefront
+
+NPCs -
+	Blacksmith
+		Description - A large muscular man. Looks friendly enough
+		
+		Talk - A simple man, you can talk to the blacksmith to shop. He'll also talk about his craft and maybe give you some failed works for free.
+		
+Objects -
+
 
 Neighbors -
 	Town Center
