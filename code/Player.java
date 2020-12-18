@@ -50,20 +50,24 @@ public class Player  extends Statable{
             System.out.println("These two locations don't connect");
         }
     }
-     
-       public int getMoney() {
-        return money;
-    }
-        
-    public void buy(int price) {
-        money = money - price;
-    }
-    
-    public void sell(int price) {
-        money = money + price;
+     public void equip(Item item) {
+        if (item.getAtkUp() > 0) {
+            hasAtkEquip = true;
+            player.changeAtk(item.getAtkUp());
+        } 
+        if (item.getDefUp() > 0) {
+            hasDefEquip = true;
+            player.changeDef(item.getDefUp());
+        }
     }
     
+    public void unequipAtk() {
+        hasAtkEquip = false;
+        player.setAtk(5);
+    }
     
-}
-
+    public void unequipDef() {
+        hasDefEquip = false;
+        player.setDef(5);
+    }
 
