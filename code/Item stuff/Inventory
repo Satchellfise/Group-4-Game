@@ -1,10 +1,11 @@
-/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package game;
-import java.util.ArrayList;
+
+import java.util.HashSet;
+
 
 /**
  *
@@ -50,25 +51,23 @@ public class Inventory {
         }
     }
     
-     public void useItem(Item item) {
-        if (item.getItemName() == "Potion" && potions == 0) {
+    
+    public void usePotion(Item item) {
+        Player player = Player.getPlayer();
+        if (item.getItemName() != "Potion") {
+            System.out.println("This isn't a potion");
+        } else if (potions == 0) {
             System.out.println("No potions left");
-        } else if (item.getItemName() == "Power Ring" && atkUps == 0) {
-            System.out.println("No Power Rings Left");
-        } else if (item.getItemName() == "DracoShield" && defUps == 0) {
-            System.out.println("No DracoShields left");
+        } else if (player.getHP() >= 100) { 
+            System.out.println("Full HP, no healing possible"); 
+        } else if (player.getHP() >= 80) {
+            player.setHP(100);
+            destroyItem(item);
         } else {
-             Player player = Player.getPlayer();
-            player.changeHP(item.getHPUp());
-            player.changeAtk(item.getAtkUp());
-            player.changeDef(item.getDefUp());
-        
-            destroyItem(item); // I validated input. Hooray!
+            player.changeHP(20);
+            destroyItem(item);
         }
-       
         
     }
-    
-    
     
 }
