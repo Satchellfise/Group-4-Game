@@ -1,0 +1,248 @@
+package pkgfinal.quest.townMovement;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+/**
+ *
+ * @author drf11
+ */
+public class Town_Panel extends JPanel implements ActionListener{
+    //width and height of the panel
+    private int _width;
+    private int _height;
+    
+    //spacing for some of the buttons and the labels
+    private int label_spacing=_height/20+_height/30+10;
+    private int button_height=_height/12;
+    private int button_spacing=_height/30+button_height;
+    
+    //the Panel and the frame
+    private final JPanel town=new JPanel();
+    private final JFrame _frame;
+    
+    //current_location states where you currently are and narration tells the user what the choices do.
+    private final JLabel current_location=new JLabel("");
+    private final JLabel narration=new JLabel("Which would you like to see?");
+    
+    //Buttons to see which of the following the user would like to see with go_back being able to take you back to these buttons after you press one.
+    private JButton show_neighbors=new JButton("Neighboring Locations");
+    private JButton show_npcs=new JButton("Nearby NPCs");
+    private JButton show_objects=new JButton("Nearby Objects");
+    private JButton go_back=new JButton("Go Back");
+    
+    //buttons allowing you into interact in different ways with npcs, objects and moving to new locations.
+    private ArrayList<JButton> neighbor_button=new ArrayList<JButton>();
+    private ArrayList<JButton> npcs_button=new ArrayList<JButton>();
+    private ArrayList<JButton> objects_button=new ArrayList<JButton>();
+    
+    //ArrayLists containing the respective features.
+    private ArrayList<Location2> _neighbor;
+    private ArrayList<String> _npcs;
+    private ArrayList<String> _objects;
+    
+    //The unimplemented menu
+    private final JButton menu=new JButton("Menu");
+    
+    //The current location
+    private Location2 _location;
+    
+    //booleans stating whether or not you clicked on one of the check buttons.
+    private boolean checking_neighbors=false;
+    
+    /**
+     * This is the constructor for the Town_Panel.
+     * @param frame The frame the panel is going to be added to.
+     * @param location The current location.
+     * @param width The width of the panel
+     * @param height The height of the panel
+     */
+    public Town_Panel(JFrame frame, Location2 location, int width, int height){
+        //instantiates those globals with the parameters.
+        _frame=frame;
+        _width=width;
+        _height=height;
+        _location=location;
+        
+        //sets basic panel stats
+        town.setBackground(Color.WHITE);//Place holder in case we want to change it.
+        town.setPreferredSize(new Dimension(_width,_height)); //Can change later
+        town.setLayout(null);
+        
+        //Style things for these labels as well as putting in text for the current_location
+        current_location.setHorizontalAlignment(SwingConstants.CENTER);
+        current_location.setVerticalAlignment(SwingConstants.BOTTOM);
+        narration.setHorizontalAlignment(SwingConstants.CENTER);
+        current_location.setText("Current Location: "+_location._name);
+        
+        //sets the location for these buttons and labels
+        current_location.setBounds(10,10,_width-20,_height/20);
+        narration.setBounds(10,label_spacing,_width-20,_height/20);
+        show_neighbors.setBounds(10,label_spacing+button_spacing,_width-20,button_height);
+        show_npcs.setBounds(10,label_spacing+2*button_spacing,_width-20,button_height);
+        show_objects.setBounds(10,label_spacing+3*button_spacing,_width-20,button_height);
+        menu.setBounds(10,_height-button_spacing,_width-20,button_height);
+        
+        //calls the getNeighbors methode in order to find the neighbors of the current location
+        _neighbor=_location.getNeighbors();
+        
+        //This code is not yet implemented
+        //_npcs=_location.getNpcs();
+        //_objects=_location.getObjects();
+        
+        //gives the neighbors buttons
+        makeNeighbors();
+        
+        //This code is not yet implemented
+        /*
+        for(int x=0;x<_npcs.size();x++){
+            npcs_button.add(new JButton(_npcs.get(x)));
+            npcs_button.get(x).addActionListener(this);
+        }
+        
+        for(int x=0;x<_objects.size();x++){
+            objects_button.add(new JButton(_objects.get(x)));
+            objects_button.get(x).addActionListener(this);
+        }
+        */
+        
+        //Adds ActionListeners for each of the buttons and a Componentlistener for the panel.
+        show_neighbors.addActionListener(this);
+        show_npcs.addActionListener(this);
+        show_objects.addActionListener(this);
+        menu.addActionListener(this);
+        go_back.addActionListener(this);
+        town.addComponentListener(new PanelListen());
+        
+        //adds the following buttons and labels to the screen.
+        town.add(current_location);
+        town.add(narration);
+        town.add(show_neighbors);
+        town.add(show_npcs);
+        town.add(show_objects);
+        town.add(menu);
+    }
+    
+    /**
+     * Returns the panel should something else need to use it.
+     * @return The panel town.
+     */
+    public JPanel getPanel(){
+        return town;
+    }
+    
+    /**
+     * Makes the neighbors buttons.
+     */
+    private void makeNeighbors(){
+        int size=_neighbor.size()+1;
+        int neighbor_height=_height/(3*size);
+        int neighbor_spacing=(_height/((30/4)*size))+neighbor_height;
+        for(int x=0;x<size-1;x++){
+            neighbor_button.add(new JButton(_neighbor.get(x)._name));
+            neighbor_button.get(x).addActionListener(this);
+            neighbor_button.get(x).setBounds(10,label_spacing+(x+1)*neighbor_spacing,_width-20,neighbor_height);
+        }
+    }
+    
+    /**
+     * is the actions listener for the buttons
+     * @param e The buttons that was pressed.
+     */
+    public void actionPerformed(ActionEvent e){
+        if(e.getSource().equals(show_neighbors)){ //if show_neighbors was pressed
+            checking_neighbors=true;
+            
+            int label_spacing=_height/20+_height/30+10;
+            int size=_neighbor.size()+1;
+            int neighbor_height=_height/(3*size);
+            int neighbor_spacing=(_height/((30/4)*size))+neighbor_height;
+            for(int x=0;x<size-1;x++){
+                neighbor_button.get(x).setBounds(10,label_spacing+(x+1)*neighbor_spacing,_width-20,neighbor_height);
+            }
+            go_back.setBounds(10,label_spacing+(size)*neighbor_spacing,_width-20,neighbor_height);
+                    
+            town.remove(show_neighbors);
+            town.remove(show_npcs);
+            town.remove(show_objects);
+            town.remove(menu);
+            
+            narration.setText("Where would you like to go?");
+            
+            for(JButton jb: neighbor_button)
+                town.add(jb);
+            town.add(go_back);
+            town.repaint();
+        }else if(e.getSource().equals(show_npcs)){
+            
+        }else if(e.getSource().equals(show_objects)){
+            
+        }else if(e.getSource().equals(menu)){ //works as quit for some reason
+            _frame.dispatchEvent(new WindowEvent(_frame, WindowEvent.WINDOW_CLOSING));
+        }else if(checking_neighbors){ //when a neighboring location has been selected or when go_back has been selected
+            //if(e.getSource().equals(go_back)){
+            town.remove(go_back);
+            for(JButton jb: neighbor_button){
+                town.remove(jb);
+            }
+            town.add(show_neighbors);
+            town.add(show_npcs);
+            town.add(show_objects);
+            town.add(menu);
+            town.repaint();
+            int size=_neighbor.size();
+            for(int x=0;x<size;x++){
+                if(e.getSource().equals(neighbor_button.get(x))){
+                    _location=_neighbor.get(x);
+                    _neighbor=_location.getNeighbors();
+                    checking_neighbors=false;
+                    current_location.setText("Current Location: "+_location._name);
+                }
+            }
+            if(!checking_neighbors){
+                neighbor_button=new ArrayList<>();
+                makeNeighbors();
+            }else{
+                checking_neighbors=false;
+            }
+            narration.setText("Which would you like to see?");
+        }
+    }
+    
+    /**
+     * When the panel has been resized ti will call this and resize objects in it.
+     */
+    private class PanelListen implements ComponentListener{
+        public void componentHidden(ComponentEvent e) {}
+        public void componentMoved(ComponentEvent e) {}
+        public void componentResized(ComponentEvent e) {
+            _width=town.getWidth();
+            _height=town.getHeight();
+            
+            label_spacing=_height/20+_height/30+10;
+            button_height=_height/12;
+            button_spacing=_height/30+button_height;
+        
+            current_location.setBounds(10,10,_width-20,_height/20);
+            narration.setBounds(10,label_spacing,_width-20,_height/20);
+            show_neighbors.setBounds(10,label_spacing+button_spacing,_width-20,button_height);
+            show_npcs.setBounds(10,label_spacing+2*button_spacing,_width-20,button_height);
+            show_objects.setBounds(10,label_spacing+3*button_spacing,_width-20,button_height);
+            menu.setBounds(10,_height-button_spacing,_width-20,button_height);
+            
+            if(checking_neighbors){
+                int size=_neighbor.size()+1;
+                int neighbor_height=_height/(3*size);
+                int neighbor_spacing=(_height/((30/4)*size))+neighbor_height;
+                for(int x=0;x<size-1;x++){
+                    neighbor_button.get(x).setBounds(10,label_spacing+(x+1)*neighbor_spacing,_width-20,neighbor_height);
+                }
+                go_back.setBounds(10,label_spacing+(size)*neighbor_spacing,_width-20,neighbor_height);
+            }
+        }
+        public void componentShown(ComponentEvent e) {}
+    }
+    
+    //public void 
+    
+}
