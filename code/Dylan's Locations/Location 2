@@ -1,0 +1,50 @@
+/*
+ * ===============================================================================================================================================
+ * 
+ * @author     Dylan Flink
+ * Class       CS173 Fall 2019
+ * Assignment: 
+ * 
+ * Summary:
+ * 
+ * ===============================================================================================================================================
+ */
+package pkgfinal.quest.townMovement;
+import java.util.*;
+/**
+ *
+ * @author danielcohen
+ */
+public class Location2 {
+    static int counter = 0;
+    public int _id;
+    String _name;
+    
+    public Location2 (String name) {
+        _id = counter;
+        counter++;
+        _name = name;
+        storeData();
+    }
+    
+    public int getID() {
+        return _id;
+    }
+    
+    public void storeData() {
+        LocationManager.storeData(_name, _id);
+    }
+    
+    public ArrayList<Location2> getNeighbors(){
+        LocationManager lm=LocationManager.getInstance();
+        Location2[] locList=lm.getLocList();
+        ArrayList<Location2> toReturn=new ArrayList<>();
+        for(Location2 l: locList){
+            if(lm.areBordering(this,l)){
+                toReturn.add(l);
+            }
+        }
+        return toReturn;
+    }
+    
+}
