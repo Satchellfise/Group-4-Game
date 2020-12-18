@@ -1,0 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package game;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author danielcohen
+ */
+public class NPC2 {
+    String _name;
+    ArrayList<String> dialogue;
+    
+    public NPC2(String name, String text) {
+        _name = name;
+        dialogue = new ArrayList();
+        dialogue.add(text);
+    }
+    
+    public void addDialogue(String text) {
+        dialogue.add(text);
+    }
+    
+    
+    
+    
+}
