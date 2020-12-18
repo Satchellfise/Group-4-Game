@@ -1,0 +1,117 @@
+/*
+ * ===============================================================================================================================================
+ * 
+ * @author     Dylan Flink
+ * Class       CS173 Fall 2019
+ * Assignment: 
+ * 
+ * Summary:
+ * 
+ * ===============================================================================================================================================
+ */
+package pkgfinal.quest.townMovement;
+
+/**
+ *
+ * @author danielcohen
+ */
+public class LocationManager {
+    
+    private static LocationManager _instance;
+    private static int[][] map;
+    private static String[] namesAndIds;
+    private static Location2[] locList; // when you create a locatiom please store it here, in order. I wil figure out a better way once I've had you two look at it
+    private static int numLocations = 4;
+        
+    
+    private LocationManager() {
+        map = new int[numLocations][numLocations];
+        namesAndIds = new String[numLocations];
+        locList = new Location2[numLocations];
+        createLocations();
+    }
+    
+    public static LocationManager getInstance() {
+        if (_instance == null) {
+            _instance = new LocationManager();
+        }
+        return _instance;
+    }
+    
+    private void createLocations() { 
+        Location2 l0 = new Location2("Block 0");
+        locList[0] = l0;
+        Location2 l1 = new Location2("Block 1");
+        locList[1] = l1;
+        Location2 l2 = new Location2("Block 2");
+        locList[2] = l2;
+        Location2 l3 = new Location2("Block 3");
+        locList[3] = l3;
+        
+       
+        map [0][1] = 1;
+        map [1][0] = 1;
+        map [1][2] = 1;
+        map [2][1] = 1;
+        map [2][3] = 1;
+        map [3][2] = 1;
+    // 0 borders 1 
+    // 1 borders 0 and 2;
+    // 3 borders 2;
+    }
+    
+    
+    public static void storeData(String name, int id) {
+        String stringID = Integer.toString(id);
+        namesAndIds[id] = name;
+        
+    }
+
+    public int nameToID (String name) { // if you only know the name, call this and get the id
+        int toReturn = -1; // returns -1 if the name isn't found
+        
+        for (int i = 0; i < namesAndIds.length; i++) {
+            if (name == namesAndIds[i]) {
+                toReturn = i;
+            }
+        }
+        return toReturn;
+    }
+    
+    public Location2 idToLocation (int id) {
+        return locList[id];
+    }
+            
+    public void printMap() { 
+        for (int row = 0; row < map.length; row++) {
+            for (int col = 0; col < map[row].length; col++) {
+                System.out.print(map[row][col]);
+            }
+            System.out.println("");
+        }
+    }
+    
+    public boolean areBordering(Location2 l1, Location2 l2) {
+        boolean toReturn;
+        if (map[l1.getID()][l2.getID()] == 1) {
+            toReturn = true;
+        } else {
+            toReturn = false;
+        }
+        return toReturn;
+    }
+
+    public boolean areBordering(String s1, String s2) { // for if you only know strings
+        boolean toReturn = false;
+        int id1 = nameToID(s1);
+        int id2 = nameToID(s2);
+        Location2 l1 = locList[id1];
+        Location2 l2 = locList[id2];
+        toReturn = areBordering(l1, l2);
+        return toReturn;
+    } 
+    
+    public Location2[] getLocList(){
+        return locList;
+    }
+}
